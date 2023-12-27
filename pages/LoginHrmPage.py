@@ -7,6 +7,7 @@ class LoginHrmPage:
     INPUT_PASSWORD = (By.XPATH, "//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input")
     BUTTON_LOGIN = (By.XPATH, "//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button")
     MAIN_TITLE_LOGIN = (By.XPATH, "//*[@id='app']/div[1]/div/div[1]/div/div[2]/h5")
+    MESSAGE_INVALID_CREDENTIALS = (By.XPATH, "//*[@id='app']/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p")
 
     def __init__(self, driver):
         self.driver: WebDriver = driver
@@ -25,4 +26,8 @@ class LoginHrmPage:
 
     def read_main_title_login(self):
         web_element = self.driver.find_element(*self.MAIN_TITLE_LOGIN)
+        return web_element.text
+
+    def read_invalid_credential_message(self):
+        web_element = self.driver.find_element(*self.MESSAGE_INVALID_CREDENTIALS)
         return web_element.text
