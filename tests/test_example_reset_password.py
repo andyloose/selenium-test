@@ -16,18 +16,16 @@ class TestExampleResetPassword:
         login_hrm_page.click_link_forgot_password()
         time.sleep(2)
         reset_password_page = ResetPasswordPage(driver)
-        assert reset_password_page.read_main_title_reset_password() == "Reset Password", "Main title not found"
+        assert reset_password_page.get_main_title_reset_password() == "Reset Password", "Main title not found"
 
         reset_password_page.type_username("Luz")
         time.sleep(2)
         reset_password_page.click_button_cancel()
         time.sleep(2)
-        login_hrm_page = LoginHrmPage(driver)
-        assert login_hrm_page.read_main_title_login() == "Login", "Login button does not exist"
+        assert login_hrm_page.read_main_title_login() == "Login", "The user was not redirected to the Login page"
 
         login_hrm_page.click_link_forgot_password()
         time.sleep(2)
-        reset_password_page = ResetPasswordPage(driver)
         assert reset_password_page.get_enter_password_message() == ("Please enter your username to identify your "
                                                                     "account to reset your password"), "error"
         reset_password_page.click_button_reset_password()

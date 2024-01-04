@@ -15,7 +15,7 @@ class ResetPasswordPage:
     def __init__(self, driver):
         self.driver: WebDriver = driver
 
-    def read_main_title_reset_password(self):
+    def get_main_title_reset_password(self):
         web_element = self.driver.find_element(*self.MAIN_TITLE_RESET_PASSWORD)
         return web_element.text
 
