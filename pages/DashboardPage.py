@@ -3,7 +3,6 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 
 class DashboardPage:
-
     MAIN_TITLE_DASHBOARD = (By.XPATH, "//*[@id='app']/div[1]/div[1]/header/div[1]/div[1]/span/h6")
     TITLE_TIME_AT_WORK = (By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div/div[1]/div/div[1]/div/p")
     TITLE_MY_ACTIONS = (By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div/div[2]/div/div[1]/div/p")
@@ -14,6 +13,7 @@ class DashboardPage:
                                                          "1]/div/p")
     TITLE_EMPLOYEE_DISTRIBUTION_BY_LOCATION = (By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div/div[7]/div/div["
                                                          "1]/div/p")
+    LINK_ADMIN = (By.XPATH, "//*[@id='app']/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a")
 
     def __init__(self, driver):
         self.driver: WebDriver = driver
@@ -50,5 +50,6 @@ class DashboardPage:
         web_element = self.driver.find_element(*self.TITLE_EMPLOYEE_DISTRIBUTION_BY_LOCATION)
         return web_element.text
 
-
-
+    def click_link_admin(self):
+        web_element = self.driver.find_element(*self.LINK_ADMIN)
+        web_element.click()
