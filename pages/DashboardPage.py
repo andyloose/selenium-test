@@ -14,6 +14,7 @@ class DashboardPage:
     TITLE_EMPLOYEE_DISTRIBUTION_BY_LOCATION = (By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div/div[7]/div/div["
                                                          "1]/div/p")
     LINK_ADMIN = (By.XPATH, "//*[@id='app']/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a")
+    LINK_PIM = (By.XPATH, "//*[@id='app']/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a/span")
 
     def __init__(self, driver):
         self.driver: WebDriver = driver
@@ -52,4 +53,8 @@ class DashboardPage:
 
     def click_link_admin(self):
         web_element = self.driver.find_element(*self.LINK_ADMIN)
+        web_element.click()
+
+    def click_link_pim(self):
+        web_element = self.driver.find_element(*self.LINK_PIM)
         web_element.click()
