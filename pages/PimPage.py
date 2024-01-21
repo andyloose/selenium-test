@@ -14,6 +14,13 @@ class PimPage:
                                              "1]/div[1]/div/div/div[2]/div[1]/span")
     MESSAGE_LAST_NAME_REQUIRED = (By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div["
                                             "1]/div[1]/div/div/div[2]/div[3]/span")
+    INPUT_FIRST_NAME = (By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div["
+                                  "1]/div/div/div[2]/div[1]/div[2]/input")
+    INPUT_MIDDLE_NAME = (By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div["
+                                   "1]/div/div/div[2]/div[2]/div[2]/input")
+    INPUT_LAST_NAME = (By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div["
+                                 "1]/div/div/div[2]/div[3]/div[2]/input")
+    BUTTON_SAVE_NEW_USER = (By.XPATH, "//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]")
 
     def __init__(self, driver):
         self.driver: WebDriver = driver
@@ -49,3 +56,19 @@ class PimPage:
     def get_message_last_name_required(self):
         web_element = self.driver.find_element(*self.MESSAGE_LAST_NAME_REQUIRED)
         return web_element.text
+
+    def type_first_name(self, text):
+        web_element = self.driver.find_element(*self.INPUT_FIRST_NAME)
+        web_element.send_keys(text)
+
+    def type_middle_name(self, text):
+        web_element = self.driver.find_element(*self.INPUT_MIDDLE_NAME)
+        web_element.send_keys(text)
+
+    def type_last_name(self, text):
+        web_element = self.driver.find_element(*self.INPUT_LAST_NAME)
+        web_element.send_keys(text)
+
+    def click_button_save_new_user(self):
+        web_element = self.driver.find_element(*self.BUTTON_SAVE_NEW_USER)
+        web_element.click()
